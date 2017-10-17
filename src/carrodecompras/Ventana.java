@@ -1,5 +1,7 @@
 package carrodecompras;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Marco
@@ -11,6 +13,9 @@ public class Ventana extends javax.swing.JFrame {
      */
     public Ventana() {
         initComponents();
+        jLCatalogo.setFont(new java.awt.Font("Arial", 1, 14));
+        jLCatalogo.setText("Catalogo");
+        Catalogo catalogo = new Catalogo(null);
     }
 
     /**
@@ -22,6 +27,12 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTCatalogo = new javax.swing.JTable();
+        jBAgregarAlCarroDeCompras = new javax.swing.JButton();
+        jBAgregarAlCatalogo = new javax.swing.JButton();
+        jBEliminarDelCatalogo = new javax.swing.JButton();
+        jLCatalogo = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -38,6 +49,39 @@ public class Ventana extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTCatalogo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Eliminar del catalogo", "Carro de compras", "Código de barras", "Título", "Actor principal", "Género", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTCatalogo);
+
+        jBAgregarAlCarroDeCompras.setText("Comprar");
+
+        jBAgregarAlCatalogo.setText("Agregar");
+        jBAgregarAlCatalogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAgregarAlCatalogoActionPerformed(evt);
+            }
+        });
+
+        jBEliminarDelCatalogo.setText("Eliminar");
+
+        jLCatalogo.setText("jLabel1");
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -106,11 +150,35 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBAgregarAlCatalogo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBEliminarDelCatalogo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBAgregarAlCarroDeCompras))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBAgregarAlCarroDeCompras)
+                    .addComponent(jBAgregarAlCatalogo)
+                    .addComponent(jBEliminarDelCatalogo))
+                .addContainerGap(352, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,6 +187,21 @@ public class Ventana extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void jBAgregarAlCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarAlCatalogoActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) jTCatalogo.getModel();
+        Object [] fila=new Object[6];
+        
+//        fila[0]=txtNombrecontacto.getText();
+//        fila[1]=txtApellidoscontacto.getText();
+//        fila[2]=txtEmail.getText();
+//        fila[3]=txtTelefono.getText();
+//        fila[4]=txtDireccion.getText();
+//        fila[5]=cboxSexo.getSelectedItem().toString();
+//        modelo
+//        modelo.addRow(fila);
+//        jTCatalogo.setModel(modelo);
+    }//GEN-LAST:event_jBAgregarAlCatalogoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +248,12 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JButton jBAgregarAlCarroDeCompras;
+    private javax.swing.JButton jBAgregarAlCatalogo;
+    private javax.swing.JButton jBEliminarDelCatalogo;
+    private javax.swing.JLabel jLCatalogo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTCatalogo;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
