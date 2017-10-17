@@ -8,7 +8,13 @@ import java.util.ArrayList;
  */
 public class Catalogo {
     private ArrayList<Pelicula> peliculas;
-
+    
+    //se agrego el constructor vacio Catalogo en la version 1.2 del proyecto.
+    public Catalogo() {
+        Pelicula pelicula = new Pelicula(-1, null, null, null, 0);
+        this.peliculas.add(pelicula);
+    }
+    
     public Catalogo(ArrayList<Pelicula> Peliculas) {
         this.peliculas = Peliculas;
     }

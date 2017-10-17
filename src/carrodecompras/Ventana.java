@@ -1,5 +1,6 @@
 package carrodecompras;
 
+import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,7 +16,43 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
         jLCatalogo.setFont(new java.awt.Font("Arial", 1, 14));
         jLCatalogo.setText("Catalogo");
-        Catalogo catalogo = new Catalogo(null);
+        jLCarroDeTienda.setFont(new java.awt.Font("Arial", 1, 14));
+        jLCarroDeTienda.setText("Carro de compras");
+        jCBActivarAgregarDatos.setText("Agregar datos");
+        jCBActivarAgregarDatos.setEnabled(true);
+        jCBActivarAgregarDatos.setSelected(false);
+        jBAgregarAlCatalogo.setEnabled(false);
+        jLCodigoDeBarras.setEnabled(false);
+        jLCodigoDeBarras.setText("Codigo de barras:");
+        jTFCodigoDeBarras.setText("");
+        jTFCodigoDeBarras.setEnabled(false);
+        jLTitulo.setEnabled(false);
+        jLTitulo.setText("Titulo de pelicula:");
+        jTFTitulo.setText("");
+        jTFTitulo.setEnabled(false);
+        jLActorPrincipal.setEnabled(false);
+        jLActorPrincipal.setText("Actor principal:");
+        jTFActorPrincipal.setText("");
+        jTFActorPrincipal.setEnabled(false);
+        jLGenero.setEnabled(false);
+        jLGenero.setText("Genero:");
+        jTFGenero.setText("");
+        jTFGenero.setEnabled(false);
+        jLPrecio.setEnabled(false);
+        jLPrecio.setText("Precio:");
+        jTFPrecio.setText("");
+        jTFPrecio.setEnabled(false);
+        jLCodigoDeBarrasVacio.setVisible(false);
+        jLTituloVacio.setVisible(false);
+        jLActorPrincipalVacio.setVisible(false);
+        jLGeneroVacio.setVisible(false);
+        jLPrecioVacio.setVisible(false);
+        //Catalogo catalogo = new Catalogo(null);
+        
+        jTCatalogo.getTableHeader().setReorderingAllowed(false);
+        
+        //DefaultTableModel modelo = (DefaultTableModel) jTCatalogo.getModel();
+        //Object [] fila=new Object[6];
     }
 
     /**
@@ -33,6 +70,25 @@ public class Ventana extends javax.swing.JFrame {
         jBAgregarAlCatalogo = new javax.swing.JButton();
         jBEliminarDelCatalogo = new javax.swing.JButton();
         jLCatalogo = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTCarroDeCompras = new javax.swing.JTable();
+        jLCarroDeTienda = new javax.swing.JLabel();
+        jTFCodigoDeBarras = new javax.swing.JTextField();
+        jLCodigoDeBarras = new javax.swing.JLabel();
+        jTFTitulo = new javax.swing.JTextField();
+        jLTitulo = new javax.swing.JLabel();
+        jLGenero = new javax.swing.JLabel();
+        jTFGenero = new javax.swing.JTextField();
+        jTFActorPrincipal = new javax.swing.JTextField();
+        jLActorPrincipal = new javax.swing.JLabel();
+        jTFPrecio = new javax.swing.JTextField();
+        jLPrecio = new javax.swing.JLabel();
+        jCBActivarAgregarDatos = new javax.swing.JCheckBox();
+        jLCodigoDeBarrasVacio = new javax.swing.JLabel();
+        jLTituloVacio = new javax.swing.JLabel();
+        jLActorPrincipalVacio = new javax.swing.JLabel();
+        jLGeneroVacio = new javax.swing.JLabel();
+        jLPrecioVacio = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -52,27 +108,22 @@ public class Ventana extends javax.swing.JFrame {
 
         jTCatalogo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Eliminar del catalogo", "Carro de compras", "Código de barras", "Título", "Actor principal", "Género", "Precio"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         jScrollPane1.setViewportView(jTCatalogo);
 
         jBAgregarAlCarroDeCompras.setText("Comprar");
 
         jBAgregarAlCatalogo.setText("Agregar");
+        jBAgregarAlCatalogo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jBAgregarAlCatalogoMouseMoved(evt);
+            }
+        });
         jBAgregarAlCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAgregarAlCatalogoActionPerformed(evt);
@@ -82,6 +133,63 @@ public class Ventana extends javax.swing.JFrame {
         jBEliminarDelCatalogo.setText("Eliminar");
 
         jLCatalogo.setText("jLabel1");
+
+        jTCarroDeCompras.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "null", "null", "Title 3", "Title 4"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTCarroDeCompras);
+
+        jLCarroDeTienda.setText("jLabel1");
+
+        jTFCodigoDeBarras.setText("jTextField1");
+
+        jLCodigoDeBarras.setText("Codigo de Barras:");
+
+        jTFTitulo.setText("jTextField1");
+
+        jLTitulo.setText("Titulo:");
+
+        jLGenero.setText("Genero");
+
+        jTFGenero.setText("jTextField1");
+
+        jTFActorPrincipal.setText("jTextField1");
+
+        jLActorPrincipal.setText("Actor Principal");
+
+        jTFPrecio.setText("jTextField1");
+
+        jLPrecio.setText("Precio");
+
+        jCBActivarAgregarDatos.setText("jCheckBox1");
+        jCBActivarAgregarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBActivarAgregarDatosActionPerformed(evt);
+            }
+        });
+
+        jLCodigoDeBarrasVacio.setText("jLabel1");
+
+        jLTituloVacio.setText("jLabel1");
+
+        jLActorPrincipalVacio.setText("jLabel1");
+
+        jLGeneroVacio.setText("jLabel1");
+
+        jLPrecioVacio.setText("jLabel1");
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -153,17 +261,44 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jCBActivarAgregarDatos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBAgregarAlCatalogo)
                         .addGap(18, 18, 18)
                         .addComponent(jBEliminarDelCatalogo)
                         .addGap(18, 18, 18)
                         .addComponent(jBAgregarAlCarroDeCompras))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLCarroDeTienda)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLTitulo)
+                                    .addComponent(jLActorPrincipal)
+                                    .addComponent(jLCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLCodigoDeBarras))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLActorPrincipalVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLCodigoDeBarrasVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTFActorPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(jTFTitulo)
+                                    .addComponent(jTFCodigoDeBarras)
+                                    .addComponent(jLTituloVacio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLGenero)
+                                    .addComponent(jLPrecio))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTFGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(jTFPrecio)
+                                    .addComponent(jLPrecioVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLGeneroVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -177,8 +312,41 @@ public class Ventana extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBAgregarAlCarroDeCompras)
                     .addComponent(jBAgregarAlCatalogo)
-                    .addComponent(jBEliminarDelCatalogo))
-                .addContainerGap(352, Short.MAX_VALUE))
+                    .addComponent(jBEliminarDelCatalogo)
+                    .addComponent(jCBActivarAgregarDatos))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLGenero)
+                        .addComponent(jTFGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLCodigoDeBarras)
+                        .addComponent(jTFCodigoDeBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCodigoDeBarrasVacio)
+                    .addComponent(jLGeneroVacio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLTitulo)
+                    .addComponent(jLPrecio)
+                    .addComponent(jTFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLTituloVacio)
+                    .addComponent(jLPrecioVacio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLActorPrincipal)
+                    .addComponent(jTFActorPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLActorPrincipalVacio)
+                .addGap(14, 14, 14)
+                .addComponent(jLCarroDeTienda)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,8 +357,39 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jBAgregarAlCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarAlCatalogoActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) jTCatalogo.getModel();
-        Object [] fila=new Object[6];
+        boolean a = true;  
+        int codigoDeBarras = Integer.parseInt(jTFCodigoDeBarras.getText());
+        String titulo = jTFTitulo.getText();
+        String actorPrincipal = jTFActorPrincipal.getText();
+        String genero = jTFGenero.getText();
+        double precio = Double.parseDouble(jTFPrecio.getText());
+        
+        
+        Object[] titulos = {"Eliminar del catalogo", "Carro de compras", "Codigo de barras", "Titulo", "Actor principal", "Genero", "Precio"};
+        Object[][] datos = new Object[0][0];
+        DefaultTableModel modelo = new DefaultTableModel(datos, titulos){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                if (column == 0) return true;
+                if (column == 1) return true;
+                return false;
+            }
+            @Override
+            public Class getColumnClass(int columna)
+            {
+                if (columna == 0) return Boolean.class;
+                if (columna == 1) return Boolean.class;
+                return Object.class;
+            }
+        };    
+        
+        Object[] fila = {a, a, codigoDeBarras, titulo, actorPrincipal, genero, precio};  
+        modelo.addRow(fila);
+        jTCatalogo.setModel(modelo);
+        
+        
+//        DefaultTableModel modelo = (DefaultTableModel) jTCatalogo.getModel();
+//        Object [] fila=new Object[6];
         
 //        fila[0]=txtNombrecontacto.getText();
 //        fila[1]=txtApellidoscontacto.getText();
@@ -202,6 +401,123 @@ public class Ventana extends javax.swing.JFrame {
 //        modelo.addRow(fila);
 //        jTCatalogo.setModel(modelo);
     }//GEN-LAST:event_jBAgregarAlCatalogoActionPerformed
+
+    private void jCBActivarAgregarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBActivarAgregarDatosActionPerformed
+        if(jCBActivarAgregarDatos.isSelected() == true) {
+            jBAgregarAlCatalogo.setEnabled(true);
+            jLCodigoDeBarras.setEnabled(true);
+            jTFCodigoDeBarras.setEnabled(true);
+            jLTitulo.setEnabled(true);
+            jTFTitulo.setEnabled(true);
+            jLActorPrincipal.setEnabled(true);
+            jTFActorPrincipal.setEnabled(true);
+            jLGenero.setEnabled(true);
+            jTFGenero.setEnabled(true);
+            jLPrecio.setEnabled(true);
+            jTFPrecio.setEnabled(true);
+        }
+        if(jCBActivarAgregarDatos.isSelected() == false) {
+            jBAgregarAlCatalogo.setEnabled(false);
+            jLCodigoDeBarras.setEnabled(false);
+            jTFCodigoDeBarras.setEnabled(false);
+            jLTitulo.setEnabled(false);
+            jTFTitulo.setEnabled(false);
+            jLActorPrincipal.setEnabled(false);
+            jTFActorPrincipal.setEnabled(false);
+            jLGenero.setEnabled(false);
+            jTFGenero.setEnabled(false);
+            jLPrecio.setEnabled(false);
+            jTFPrecio.setEnabled(false);
+            jLCodigoDeBarrasVacio.setVisible(false);
+            jLTituloVacio.setVisible(false);
+            jLActorPrincipalVacio.setVisible(false);
+            jLGeneroVacio.setVisible(false);
+            jLPrecioVacio.setVisible(false);
+            jTFCodigoDeBarras.setText("");
+            jTFTitulo.setText("");
+            jTFActorPrincipal.setText("");
+            jTFGenero.setText("");
+            jTFPrecio.setText("");
+        }
+    }//GEN-LAST:event_jCBActivarAgregarDatosActionPerformed
+
+    private void jBAgregarAlCatalogoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAgregarAlCatalogoMouseMoved
+        boolean algunoEsFalso = false;
+        if( jTFCodigoDeBarras.getText().isEmpty()  && jCBActivarAgregarDatos.isSelected() == true ) {
+            jLCodigoDeBarrasVacio.setText("*Favor de ingresar codigo de barras");
+            jLCodigoDeBarrasVacio.setForeground(Color.red);
+            jLCodigoDeBarrasVacio.setVisible(true);
+            //jBAgregarAlCatalogo.setEnabled(false);
+            algunoEsFalso = false;
+        }else {
+            if (jCBActivarAgregarDatos.isSelected() == true) {
+                //jBAgregarAlCatalogo.setEnabled(true);
+                jLCodigoDeBarrasVacio.setVisible(false);
+                algunoEsFalso = true;
+            }
+        }
+        if( jTFTitulo.getText().isEmpty() && jCBActivarAgregarDatos.isSelected() == true ) {
+            jLTituloVacio.setText("*Favor de ingresar titulo de la pelicula");
+            jLTituloVacio.setForeground(Color.red);
+            jLTituloVacio.setVisible(true);
+            //jBAgregarAlCatalogo.setEnabled(false);
+            algunoEsFalso = false;
+        }else {
+            if (jCBActivarAgregarDatos.isSelected() == true) {
+                //jBAgregarAlCatalogo.setEnabled(true);
+                jLTituloVacio.setVisible(false);
+                algunoEsFalso = true;
+            }
+        }
+        if ( jTFActorPrincipal.getText().isEmpty() && jCBActivarAgregarDatos.isSelected() == true ) {
+            jLActorPrincipalVacio.setText("*Favor de ingresar actor principal de la pelicula");
+            jLActorPrincipalVacio.setForeground(Color.red);
+            jLActorPrincipalVacio.setVisible(true);
+            //jBAgregarAlCatalogo.setEnabled(false);
+            algunoEsFalso = false;
+        }else {
+            if (jCBActivarAgregarDatos.isSelected() == true) {
+                //jBAgregarAlCatalogo.setEnabled(true);
+                jLActorPrincipalVacio.setVisible(false);
+                algunoEsFalso = true;
+            }
+        }
+        if( jTFGenero.getText().isEmpty() && jCBActivarAgregarDatos.isSelected() == true ) {
+            jLGeneroVacio.setText("*Favor de ingresar genero de la pelicula");
+            jLGeneroVacio.setForeground(Color.red);
+            jLGeneroVacio.setVisible(true);
+            //jBAgregarAlCatalogo.setEnabled(false);
+            algunoEsFalso = false;
+        } else {
+            if (jCBActivarAgregarDatos.isSelected() == true) {
+                //jBAgregarAlCatalogo.setEnabled(true);
+                jLGeneroVacio.setVisible(false);
+                algunoEsFalso = true;
+            }
+        }
+        if( jTFPrecio.getText().isEmpty() && jCBActivarAgregarDatos.isSelected() == true ) {
+            jLPrecioVacio.setText("*Favor de ingresar precio de la pelicula");
+            jLPrecioVacio.setForeground(Color.red);
+            jLPrecioVacio.setVisible(true);
+            //jBAgregarAlCatalogo.setEnabled(false);
+            algunoEsFalso = false;
+        }else {
+            if (jCBActivarAgregarDatos.isSelected() == true) {
+                //jBAgregarAlCatalogo.setEnabled(true);
+                jLPrecioVacio.setVisible(false);
+                algunoEsFalso = true;
+            }
+        }
+        
+        if (jCBActivarAgregarDatos.isSelected() == true && algunoEsFalso == true) {
+                jBAgregarAlCatalogo.setEnabled(true);
+        }
+        if (jCBActivarAgregarDatos.isSelected() == true && algunoEsFalso == false) {
+                jBAgregarAlCatalogo.setEnabled(false);
+        }
+        
+        
+    }//GEN-LAST:event_jBAgregarAlCatalogoMouseMoved
 
     /**
      * @param args the command line arguments
@@ -251,9 +567,28 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton jBAgregarAlCarroDeCompras;
     private javax.swing.JButton jBAgregarAlCatalogo;
     private javax.swing.JButton jBEliminarDelCatalogo;
+    private javax.swing.JCheckBox jCBActivarAgregarDatos;
+    private javax.swing.JLabel jLActorPrincipal;
+    private javax.swing.JLabel jLActorPrincipalVacio;
+    private javax.swing.JLabel jLCarroDeTienda;
     private javax.swing.JLabel jLCatalogo;
+    private javax.swing.JLabel jLCodigoDeBarras;
+    private javax.swing.JLabel jLCodigoDeBarrasVacio;
+    private javax.swing.JLabel jLGenero;
+    private javax.swing.JLabel jLGeneroVacio;
+    private javax.swing.JLabel jLPrecio;
+    private javax.swing.JLabel jLPrecioVacio;
+    private javax.swing.JLabel jLTitulo;
+    private javax.swing.JLabel jLTituloVacio;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTCarroDeCompras;
     private javax.swing.JTable jTCatalogo;
+    private javax.swing.JTextField jTFActorPrincipal;
+    private javax.swing.JTextField jTFCodigoDeBarras;
+    private javax.swing.JTextField jTFGenero;
+    private javax.swing.JTextField jTFPrecio;
+    private javax.swing.JTextField jTFTitulo;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
