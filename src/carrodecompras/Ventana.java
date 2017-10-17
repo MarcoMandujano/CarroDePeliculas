@@ -1,6 +1,7 @@
 package carrodecompras;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -8,7 +9,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Marco
  */
 public class Ventana extends javax.swing.JFrame {
-
+    Catalogo catalogo;
+    ArrayList<Pelicula> peliculas;
     /**
      * Creates new form Ventana
      */
@@ -50,9 +52,6 @@ public class Ventana extends javax.swing.JFrame {
         //Catalogo catalogo = new Catalogo(null);
         
         jTCatalogo.getTableHeader().setReorderingAllowed(false);
-        
-        //DefaultTableModel modelo = (DefaultTableModel) jTCatalogo.getModel();
-        //Object [] fila=new Object[6];
     }
 
     /**
@@ -357,21 +356,25 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jBAgregarAlCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarAlCatalogoActionPerformed
-        boolean a = true;  
+        boolean cbDesactivado = false;  
         int codigoDeBarras = Integer.parseInt(jTFCodigoDeBarras.getText());
         String titulo = jTFTitulo.getText();
         String actorPrincipal = jTFActorPrincipal.getText();
         String genero = jTFGenero.getText();
         double precio = Double.parseDouble(jTFPrecio.getText());
         
+        Pelicula pelicula = new Pelicula(codigoDeBarras, titulo, actorPrincipal, genero, precio);
+        peliculas.add(pelicula);
+        catalogo = new Catalogo(peliculas);
+        
         
         Object[] titulos = {"Eliminar del catalogo", "Carro de compras", "Codigo de barras", "Titulo", "Actor principal", "Genero", "Precio"};
         Object[][] datos = new Object[0][0];
         DefaultTableModel modelo = new DefaultTableModel(datos, titulos){
             @Override
-            public boolean isCellEditable(int row, int column){
-                if (column == 0) return true;
-                if (column == 1) return true;
+            public boolean isCellEditable(int row, int columna){
+                if (columna == 0) return true;
+                if (columna == 1) return true;
                 return false;
             }
             @Override
@@ -383,23 +386,10 @@ public class Ventana extends javax.swing.JFrame {
             }
         };    
         
-        Object[] fila = {a, a, codigoDeBarras, titulo, actorPrincipal, genero, precio};  
+        Object[] fila = {cbDesactivado, cbDesactivado, codigoDeBarras, titulo, actorPrincipal, genero, precio};  
         modelo.addRow(fila);
         jTCatalogo.setModel(modelo);
         
-        
-//        DefaultTableModel modelo = (DefaultTableModel) jTCatalogo.getModel();
-//        Object [] fila=new Object[6];
-        
-//        fila[0]=txtNombrecontacto.getText();
-//        fila[1]=txtApellidoscontacto.getText();
-//        fila[2]=txtEmail.getText();
-//        fila[3]=txtTelefono.getText();
-//        fila[4]=txtDireccion.getText();
-//        fila[5]=cboxSexo.getSelectedItem().toString();
-//        modelo
-//        modelo.addRow(fila);
-//        jTCatalogo.setModel(modelo);
     }//GEN-LAST:event_jBAgregarAlCatalogoActionPerformed
 
     private void jCBActivarAgregarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBActivarAgregarDatosActionPerformed
