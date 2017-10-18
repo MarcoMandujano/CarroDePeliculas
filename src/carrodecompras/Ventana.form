@@ -215,9 +215,9 @@
                   <Component id="jLPrecioVacio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLActorPrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jTFActorPrincipal" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLActorPrincipal" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLActorPrincipalVacio" min="-2" max="-2" attributes="0"/>

@@ -11,6 +11,14 @@ public class Pelicula {
     private String genero;
     private double precio;
 
+    public Pelicula() {
+        this.codigoDeBarras = 0;
+        this.titulo = "";
+        this.actorPrincipal = "";
+        this.genero = "";
+        this.precio = 0;
+    }
+    
     public Pelicula(int codigoDeBarras, String titulo, String actorPrincipal, String genero, double precio) {
         this.codigoDeBarras = codigoDeBarras;
         this.titulo = titulo;
