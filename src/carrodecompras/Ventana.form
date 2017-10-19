@@ -103,6 +103,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -121,51 +124,69 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jCBActivarAgregarDatos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jBAgregarAlCatalogo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jBEliminarDelCatalogo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jBAgregarAlCarroDeCompras" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jScrollPane1" alignment="1" pref="1086" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" pref="1165" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Component id="jLCatalogo" min="-2" pref="71" max="-2" attributes="0"/>
+                  <Component id="jLCarroDeTienda" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jBEliminarDelCarro" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLCarroDeTienda" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLActorPrincipal" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLCodigoDeBarras" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCBActivarAgregarDatos" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLActorPrincipal" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLCatalogo" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="jLCodigoDeBarras" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLActorPrincipalVacio" max="32767" attributes="0"/>
-                                  <Component id="jLCodigoDeBarrasVacio" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFActorPrincipal" alignment="0" pref="300" max="32767" attributes="0"/>
+                                  <Component id="jLTituloVacio" max="32767" attributes="0"/>
+                                  <Component id="jTFCodigoDeBarras" pref="330" max="32767" attributes="0"/>
                                   <Component id="jTFTitulo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFCodigoDeBarras" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLTituloVacio" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jTFActorPrincipal" max="32767" attributes="0"/>
+                                  <Component id="jLCodigoDeBarrasVacio" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLGenero" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLCantidad" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTFGenero" pref="300" max="32767" attributes="0"/>
-                                  <Component id="jTFPrecio" max="32767" attributes="0"/>
-                                  <Component id="jLPrecioVacio" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLGeneroVacio" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTFCantidad" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jTFPrecio" pref="330" max="32767" attributes="0"/>
+                                              <Component id="jTFGenero" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLPrecioVacio" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLGeneroVacio" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="260" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLCantidadVacio" min="-2" pref="330" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jCBActivarComprar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jBAgregarAlCatalogo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jBEliminarDelCatalogo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jBAgregarAlCarroDeCompras" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -178,54 +199,74 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLCatalogo" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="99" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBAgregarAlCarroDeCompras" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBAgregarAlCatalogo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBEliminarDelCatalogo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jCBActivarAgregarDatos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCBActivarComprar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="jLGenero" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLCodigoDeBarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCodigoDeBarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="jLCodigoDeBarrasVacio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTFTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLTituloVacio" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="jLCodigoDeBarras" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFCodigoDeBarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="jLGeneroVacio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLPrecioVacio" min="-2" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLCodigoDeBarrasVacio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLGeneroVacio" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTFTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTFPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLTituloVacio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLPrecioVacio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTFActorPrincipal" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLActorPrincipal" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTFActorPrincipal" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLActorPrincipal" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLActorPrincipalVacio" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLCantidadVacio" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLActorPrincipalVacio" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jLCarroDeTienda" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="129" max="-2" attributes="0"/>
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="147" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jBEliminarDelCarro" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -257,6 +298,10 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Comprar"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jBAgregarAlCarroDeComprasMouseMoved"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAgregarAlCarroDeComprasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBAgregarAlCatalogo">
       <Properties>
@@ -271,6 +316,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBEliminarDelCatalogoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLCatalogo">
       <Properties>
@@ -287,36 +335,10 @@
         <Component class="javax.swing.JTable" name="jTCarroDeCompras">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="0">
-                <Column editable="true" title="null" type="java.lang.Boolean"/>
-                <Column editable="true" title="null" type="java.lang.Boolean"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
-              </Table>
+              <Table columnCount="0" rowCount="0"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
+              <TableColumnModel selectionModel="0"/>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -412,6 +434,34 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBEliminarDelCarro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTFCantidad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLCantidad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cantidad"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLCantidadVacio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jCBActivarComprar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jCheckBox1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBActivarComprarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

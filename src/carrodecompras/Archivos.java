@@ -29,7 +29,7 @@ public class Archivos {
     
     public boolean escribirPelicula(Pelicula pelicula) { 
         boolean escrito = true;
-        String codigoDeBarras = String.valueOf(pelicula.getCodigoDeBarras());
+        String codigoDeBarras = pelicula.getCodigoDeBarras();
         String titulo = pelicula.getTitulo();
         String actorPrincipal = pelicula.getActorPrincipal();
         String genero = pelicula.getGenero();
@@ -77,7 +77,7 @@ public class Archivos {
                     inicio = infoPelicula.indexOf("°");
                     fin = infoPelicula.lastIndexOf("|");
                     cadena = Slinea.substring(inicio + 1, fin);
-                    pelicula.setCodigoDeBarras(Integer.valueOf(cadena));
+                    pelicula.setCodigoDeBarras(cadena);
 
                     inicio = infoPelicula.indexOf("|");
                     fin = infoPelicula.lastIndexOf("¬");
@@ -119,8 +119,8 @@ public class Archivos {
         return peliculas;
     }
     
-    public boolean borrarPelicula(int codigoDeBarras) {
-        String codigo = String.valueOf(codigoDeBarras);
+    public boolean borrarPelicula(String codigoDeBarras) {
+        String codigo = codigoDeBarras;
         boolean borrada = true;
         String nombreFicheroInicial;
         File nuevo = new File(Ffichero.getParent() + "temporal.txt");
@@ -140,7 +140,7 @@ public class Archivos {
                 while((Slinea = Flee.readLine()) != null) {
                     //busca linea por linea el codigo de barras correspondiente
                     if (Slinea.contains(codigo) == false) {
-                        Fescribe.write(Slinea);
+                        Fescribe.write(Slinea + "\r\n");
                     }
                     /*Imprime la linea leida*/    
                     System.out.println(Slinea);              
@@ -152,6 +152,7 @@ public class Archivos {
                 nombreFicheroInicial = Ffichero.getName();
                 Ffichero.delete();
                 nuevo.renameTo(Ffichero);
+                
                 borrada = true;
                 
             }else{
@@ -171,8 +172,8 @@ public class Archivos {
      * @param pelicula
      * @return Pelicula que se encontro
      */
-    public Pelicula buscarPelicula(int codigoDeBarras) {
-        String codigo = String.valueOf(codigoDeBarras);
+    public Pelicula buscarPelicula(String codigoDeBarras) {
+        String codigo = codigoDeBarras;
         String infoPelicula, cadena;
         int inicio, fin;
         Pelicula peliculaABuscar = new Pelicula();
@@ -189,7 +190,7 @@ public class Archivos {
                     //busca linea por linea el codigo de barras correspondiente
                     if (Slinea.contains(codigo) == true) {
                         infoPelicula = Slinea;
-                        peliculaABuscar.setCodigoDeBarras(Integer.valueOf(codigo));
+                        peliculaABuscar.setCodigoDeBarras(codigo);
                         inicio = infoPelicula.indexOf("|");
                         fin = infoPelicula.lastIndexOf("¬");
                         cadena = Slinea.substring(inicio + 1, fin);

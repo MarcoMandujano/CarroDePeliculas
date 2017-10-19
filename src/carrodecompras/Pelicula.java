@@ -5,21 +5,21 @@ package carrodecompras;
  * @author Marco
  */
 public class Pelicula {
-    private int codigoDeBarras;
+    private String codigoDeBarras;
     private String titulo;
     private String actorPrincipal;
     private String genero;
     private double precio;
 
     public Pelicula() {
-        this.codigoDeBarras = 0;
+        this.codigoDeBarras = "";
         this.titulo = "";
         this.actorPrincipal = "";
         this.genero = "";
         this.precio = 0;
     }
     
-    public Pelicula(int codigoDeBarras, String titulo, String actorPrincipal, String genero, double precio) {
+    public Pelicula(String codigoDeBarras, String titulo, String actorPrincipal, String genero, double precio) {
         this.codigoDeBarras = codigoDeBarras;
         this.titulo = titulo;
         this.actorPrincipal = actorPrincipal;
@@ -27,11 +27,11 @@ public class Pelicula {
         this.precio = precio;
     }
 
-    public int getCodigoDeBarras() {
+    public String getCodigoDeBarras() {
         return codigoDeBarras;
     }
 
-    public void setCodigoDeBarras(int codigoDeBarras) {
+    public void setCodigoDeBarras(String codigoDeBarras) {
         this.codigoDeBarras = codigoDeBarras;
     }
 
