@@ -10,6 +10,8 @@ public class Pelicula {
     private String actorPrincipal;
     private String genero;
     private double precio;
+    private double cantidad;
+    private double subtotal;
 
     public Pelicula() {
         this.codigoDeBarras = "";
@@ -17,14 +19,18 @@ public class Pelicula {
         this.actorPrincipal = "";
         this.genero = "";
         this.precio = 0;
+        this.cantidad = 0;
+        this.subtotal = 0;
     }
     
-    public Pelicula(String codigoDeBarras, String titulo, String actorPrincipal, String genero, double precio) {
+    public Pelicula(String codigoDeBarras, String titulo, String actorPrincipal, String genero, double precio, double cantidad, double subtotal) {
         this.codigoDeBarras = codigoDeBarras;
         this.titulo = titulo;
         this.actorPrincipal = actorPrincipal;
         this.genero = genero;
         this.precio = precio;
+        this.cantidad = cantidad;
+        this.subtotal = subtotal;
     }
 
     public String getCodigoDeBarras() {
@@ -66,6 +72,20 @@ public class Pelicula {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
-    
+
+    public double getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
 }

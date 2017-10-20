@@ -14,6 +14,10 @@ import java.util.ArrayList;
 public class Carrito {
     private ArrayList<Pelicula> peliculas;
 
+    public Carrito() {
+        this.peliculas = new ArrayList<Pelicula>();
+    }
+    
     public Carrito(ArrayList<Pelicula> peliculas) {
         this.peliculas = peliculas;
     }
@@ -22,12 +26,20 @@ public class Carrito {
         this.peliculas.add(pelicula);
     }
     
+    public void agregarPeliculas(ArrayList<Pelicula> peliculas) {
+        this.peliculas = peliculas;
+    }
+    
+    public ArrayList<Pelicula> regresaPeliculas() {
+        return this.peliculas;
+    }
+    
     public boolean eliminarPelicula(Pelicula pelicula) {
         int indice;
         int tamanoDelArregloPeliculas = peliculas.size();
         boolean eliminado = false;
-        for (indice = 0; indice <= tamanoDelArregloPeliculas; indice++) {
-            if(pelicula.equals(peliculas.get(indice)) == true) {
+        for (indice = 0; indice < tamanoDelArregloPeliculas; indice++) {
+            if (pelicula.equals(peliculas.get(indice)) == true) {
                 peliculas.remove(indice);
                 eliminado = true;
             }
@@ -43,24 +55,25 @@ public class Carrito {
      * @param cantidad
      * @return double.
      */
-    public double subTotal(Pelicula pelicula, int cantidad) {
-        double subtotal = -1;
-        int indice;
+    public double subTotal(int indice) {
+        double subtotal = -1, precio, cantidad;
         int tamanoDelArregloPeliculas = peliculas.size();
-        for (indice = 0; indice <= tamanoDelArregloPeliculas; indice++) {
-            if(pelicula.equals(peliculas.get(indice)) == true) {
-                subtotal = pelicula.getPrecio() * cantidad;
-            }
-        }
+        //for (indice = 0; indice < tamanoDelArregloPeliculas; indice++) {
+            //if(pelicula.equals(peliculas.get(indice)) == true) {
+            precio = this.peliculas.get(indice).getPrecio();
+            cantidad = this.peliculas.get(indice).getCantidad();
+            subtotal = precio * cantidad;
+            //}
+        //}
         return subtotal;
     }
     
-    public double total(ArrayList<Pelicula> peli) {
+    public double total() {
         double total = -1;
         int indice;
-        int tamanoDelArregloPeli = peli.size();
-        for (indice = 0; indice <= tamanoDelArregloPeli; indice++) {
-            total =+ peli.get(indice).getPrecio();
+        int tamanoDelArregloPeli = this.peliculas.size();
+        for (indice = 0; indice < tamanoDelArregloPeli; indice++) {
+            total += this.peliculas.get(indice).getPrecio() * this.peliculas.get(indice).getCantidad();
         }
         return total;
     }
