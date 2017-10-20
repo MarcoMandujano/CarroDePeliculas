@@ -234,6 +234,11 @@ public class Ventana extends javax.swing.JFrame {
         jLPrecioVacio.setText("jLabel1");
 
         jBEliminarDelCarro.setText("Eliminar");
+        jBEliminarDelCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarDelCarroActionPerformed(evt);
+            }
+        });
 
         jTFCantidad.setText("jTextField1");
 
@@ -345,18 +350,14 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(jLCantidad))
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTFCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTFPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                                                .addComponent(jTFGenero)
-                                                .addComponent(jLPrecioVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLGeneroVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLCantidadVacio, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(270, Short.MAX_VALUE))))
+                                    .addComponent(jTFCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTFPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                                        .addComponent(jTFGenero)
+                                        .addComponent(jLPrecioVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLGeneroVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLCantidadVacio, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(318, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jCBActivarComprar)
@@ -375,19 +376,16 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(jLCarroDeTienda))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jBEliminarDelCarro)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTFCantidadTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30))))))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jBEliminarDelCarro)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTFCantidadTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -846,9 +844,9 @@ public class Ventana extends javax.swing.JFrame {
                 if (columna == 0) {
                     return true;
                 }
-                if (columna == 1) {
+                /*if (columna == 1) {
                     return true;
-                }
+                }*/
                 return false;
             }
             @Override
@@ -890,19 +888,20 @@ public class Ventana extends javax.swing.JFrame {
         if (carroDeCompras.regresaPeliculas().isEmpty()) {
             carroDeCompras.agregarPeliculas(peliculas);
         }
-            for (i = 0; i < carroDeCompras.regresaPeliculas().size(); i++) {
-                codBarras = carroDeCompras.regresaPeliculas().get(i).getCodigoDeBarras();
-                titu = carroDeCompras.regresaPeliculas().get(i).getTitulo();
-                prec = carroDeCompras.regresaPeliculas().get(i).getPrecio();
-                cantidad = carroDeCompras.regresaPeliculas().get(i).getCantidad();
-                subTotal = carroDeCompras.subTotal(i);
-                Object[] fila = {cb, codBarras, titu, prec, cantidad, subTotal};
-                modeloCarro.addRow(fila);
-            }
-            total = carroDeCompras.total();
+        for (i = 0; i < carroDeCompras.regresaPeliculas().size(); i++) {
+            codBarras = carroDeCompras.regresaPeliculas().get(i).getCodigoDeBarras();
+            titu = carroDeCompras.regresaPeliculas().get(i).getTitulo();
+            prec = carroDeCompras.regresaPeliculas().get(i).getPrecio();
+            cantidad = carroDeCompras.regresaPeliculas().get(i).getCantidad();
+            subTotal = carroDeCompras.subTotal(i);
+            Object[] fila = {cb, codBarras, titu, prec, cantidad, subTotal};
+            modeloCarro.addRow(fila);
+        }
+        total = carroDeCompras.total();
         jTCarroDeCompras.setModel(modeloCarro);
         jTFCantidadTotal.setEnabled(true);
-        jTFCantidadTotal.setText(String.valueOf(total));
+        //jTFCantidadTotal.setText(String.valueOf(total));
+        jTFCantidadTotal.setText(String.format("%.4f", total));
     }//GEN-LAST:event_jBAgregarAlCarroDeComprasActionPerformed
 
     private void jBEliminarDelCatalogoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBEliminarDelCatalogoMouseMoved
@@ -948,6 +947,80 @@ public class Ventana extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTCatalogoMouseClicked
+
+    private void jBEliminarDelCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDelCarroActionPerformed
+        int i, j;
+        boolean activo, cb = false;
+        double total, prec, cant, subTotal;
+        String codBarras, titu, preci, cantidad;
+        String titElimDCar = "Eliminar del carro";
+        String titCodDBarr = "Codigo de barras";
+        String titTituDPel = "Titulo de pelicula";
+        String titPre = "Precio";
+        String titCant = "Cantidad";
+        String titSub = "Subtotal";
+        Pelicula pelicula;
+        ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+        for (i = 0; i < jTCarroDeCompras.getRowCount(); i++) {
+            activo = Boolean.valueOf(jTCarroDeCompras.getValueAt(i,0).toString());
+            pelicula = new Pelicula();
+            if (activo) {
+                for (j = 1; j < jTCarroDeCompras.getColumnCount(); j++) {
+                    if (j == 1) {
+                        codBarras = jTCarroDeCompras.getValueAt(i,j).toString();
+                        pelicula.setCodigoDeBarras(codBarras);
+                    }
+                    if (j == 2) {
+                        titu = jTCarroDeCompras.getValueAt(i,j).toString();
+                        pelicula.setTitulo(titu);
+                    }
+                    if (j == 3) {
+                        preci = jTCarroDeCompras.getValueAt(i,j).toString();
+                        pelicula.setPrecio(Double.parseDouble(preci));
+                    }
+                    if (j == 4) {
+                        cantidad = jTCarroDeCompras.getValueAt(i, j).toString();
+                        pelicula.setCantidad(Double.parseDouble(cantidad));
+                    }
+                }
+                peliculas.add(pelicula);
+            }
+        }
+        for (i = 0; i < peliculas.size(); i++) {
+            carroDeCompras.eliminarPelicula(peliculas.get(i));
+        }
+        Object[] titulos = {titElimDCar, titCodDBarr, titTituDPel, titPre, titCant, titSub};
+        Object[][] datos = new Object[0][0];
+        DefaultTableModel modelo = new DefaultTableModel(datos, titulos) {
+            @Override
+            public boolean isCellEditable(int row, int columna) {
+                if (columna == 0) {
+                    return true;
+                }
+                return false;
+            }
+            @Override
+            public Class getColumnClass(int columna){
+                if (columna == 0) {
+                    return Boolean.class;
+                }
+                return Object.class;
+            }
+        };
+        for (i = 0; i < carroDeCompras.regresaPeliculas().size(); i++) {
+            codBarras = carroDeCompras.regresaPeliculas().get(i).getCodigoDeBarras();
+            titu = carroDeCompras.regresaPeliculas().get(i).getTitulo();
+            prec = carroDeCompras.regresaPeliculas().get(i).getPrecio();
+            cant = carroDeCompras.regresaPeliculas().get(i).getCantidad();
+            subTotal = carroDeCompras.subTotal(i);
+            Object[] fila = {cb, codBarras, titu, prec, cant, subTotal};
+            modelo.addRow(fila);
+        }
+        total = carroDeCompras.total();
+        jTCarroDeCompras.setModel(modelo);
+        jTFCantidadTotal.setEnabled(true);
+        jTFCantidadTotal.setText(String.format("%.4f", total));
+    }//GEN-LAST:event_jBEliminarDelCarroActionPerformed
 
     /**
      * @param args the command line arguments

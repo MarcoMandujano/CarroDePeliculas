@@ -36,12 +36,19 @@ public class Carrito {
     
     public boolean eliminarPelicula(Pelicula pelicula) {
         int indice;
-        int tamanoDelArregloPeliculas = peliculas.size();
+        int tamanoDelArregloPeliculas = this.peliculas.size();
         boolean eliminado = false;
+        String codBarras, coBarr;
+        double cantidad, cant;
         for (indice = 0; indice < tamanoDelArregloPeliculas; indice++) {
-            if (pelicula.equals(peliculas.get(indice)) == true) {
-                peliculas.remove(indice);
+            coBarr = pelicula.getCodigoDeBarras();
+            codBarras = this.peliculas.get(indice).getCodigoDeBarras();
+            cantidad = pelicula.getCantidad();
+            cant = this.peliculas.get(indice).getCantidad();
+            if (codBarras.contains(coBarr) && cant == cantidad) {
+                this.peliculas.remove(indice);
                 eliminado = true;
+                break;
             }
         }
         return eliminado;
@@ -56,20 +63,15 @@ public class Carrito {
      * @return double.
      */
     public double subTotal(int indice) {
-        double subtotal = -1, precio, cantidad;
-        int tamanoDelArregloPeliculas = peliculas.size();
-        //for (indice = 0; indice < tamanoDelArregloPeliculas; indice++) {
-            //if(pelicula.equals(peliculas.get(indice)) == true) {
-            precio = this.peliculas.get(indice).getPrecio();
-            cantidad = this.peliculas.get(indice).getCantidad();
-            subtotal = precio * cantidad;
-            //}
-        //}
+        double subtotal, precio, cantidad;
+        precio = this.peliculas.get(indice).getPrecio();
+        cantidad = this.peliculas.get(indice).getCantidad();
+        subtotal = precio * cantidad;
         return subtotal;
     }
     
     public double total() {
-        double total = -1;
+        double total = 0;
         int indice;
         int tamanoDelArregloPeli = this.peliculas.size();
         for (indice = 0; indice < tamanoDelArregloPeli; indice++) {

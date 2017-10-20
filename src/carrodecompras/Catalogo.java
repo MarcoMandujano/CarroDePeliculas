@@ -20,7 +20,7 @@ public class Catalogo {
     public Catalogo() {
         //this.peliculas = peliculas;
         this.peliculas = new ArrayList<Pelicula>();
-        this.catalogo = new Archivos("\\catalogo", "C:\\Users\\Marco\\Desktop");
+        this.catalogo = new Archivos("catalogo", "C:\\Users\\Marco\\Desktop");
     }
     
     public boolean agregarPrelicula(Pelicula pelicula) {

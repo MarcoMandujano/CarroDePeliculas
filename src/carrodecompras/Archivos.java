@@ -24,7 +24,8 @@ public class Archivos {
     public Archivos(String nombreArchivo, String direccionDelArchivo) {
         this.nombreArchivo = nombreArchivo;
         this.direccionDelArchivo = direccionDelArchivo;
-        this.Ffichero = new File(this.direccionDelArchivo + this.nombreArchivo + ".txt");
+        //this.Ffichero = new File(this.direccionDelArchivo + this.nombreArchivo + ".txt");
+        this.Ffichero = new File(this.nombreArchivo + ".txt");
     }
     
     public boolean escribirPelicula(Pelicula pelicula) { 
