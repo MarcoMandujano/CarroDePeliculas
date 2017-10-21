@@ -1,5 +1,6 @@
 /*
- * Se agrego esta clase en la fase de codificacion de PSP y se encuentra a partir de la version 1.4 de github
+ * Se agrego esta clase en la fase de codificacion de PSP y se encuentra a
+ *  partir de la version 1.4 de github
  * Se agregaron 1 linea de codigo ya existente
  */
 package carrodecompras;

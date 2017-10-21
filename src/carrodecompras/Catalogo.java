@@ -9,20 +9,28 @@ import java.util.ArrayList;
  * @author Marco
  */
 public class Catalogo {
+    /**
+     * Atributo peliculas de tipo ArrayList.
+     */
     private ArrayList<Pelicula> peliculas;
+    /**
+     * Atributo catalogo Archivos.
+     */
     private Archivos catalogo;
-    
-    //se agrego el constructor vacio Catalogo en la version 1.2 del proyecto.
-//    public Catalogo() {
-//        Pelicula pelicula = new Pelicula(-1, null, null, null, 0);
-//        this.peliculas.add(pelicula);
-//    }    
+    /**
+     * Constructor vacio.
+     */
     public Catalogo() {
-        //this.peliculas = peliculas;
         this.peliculas = new ArrayList<Pelicula>();
         this.catalogo = new Archivos("catalogo", "C:\\Users\\Marco\\Desktop");
     }
-    
+    /**
+     * Metodo que agrega una pelicula al catalogo.
+     * Regresa true si la pelicula fue agregada al catalogo y
+     *  false si no lo fue.
+     * @param pelicula Pelicula
+     * @return boolean
+     */
     public boolean agregarPrelicula(Pelicula pelicula) {
         boolean agregada;
         this.peliculas.add(pelicula);
@@ -30,33 +38,41 @@ public class Catalogo {
         agregada = catalogo.escribirPelicula(peliculas.get(ultPelicula));
         return agregada;
     }
-    
+    /**
+     * Metodo que elimina una pelicula del catalogo.
+     * Regresa true si la pelicula fue eliminada del catalogo y
+     *  false si no lo fue.
+     * @param pelicula Pelicula
+     * @return boolean
+     */
     public boolean eliminarPelicula(Pelicula pelicula) {
         int indice;
         int tamanoDelArregloPeliculas = peliculas.size();
-        boolean eliminado = false;
+        boolean elim = false;
         String codgBarras;
         for (indice = 0; indice < tamanoDelArregloPeliculas; indice++) {
             codgBarras = this.peliculas.get(indice).getCodigoDeBarras();
             if (pelicula.getCodigoDeBarras().contains(codgBarras)) {
-                eliminado = catalogo.borrarPelicula(pelicula.getCodigoDeBarras());
+                elim = catalogo.borrarPelicula(pelicula.getCodigoDeBarras());
                 peliculas.remove(indice);
                 tamanoDelArregloPeliculas = peliculas.size();
             }
         }
-        return eliminado;
+        return elim;
     }
-    
+    /**
+     * Metodo que regresa un ArrayList con todas las peliculas disponibles en
+     *  el catalogo.
+     * @return ArrayList
+     */
     public ArrayList<Pelicula> getPeliculas() {
         this.peliculas = catalogo.leerPeliculas();
         return this.peliculas;
     }
-    
     /**
-     * 
-     * @param codigoDeBarras
-     * @return Objeto pelicula con la pelicula que se busco por el codigo de barras. En caso de que no exista la pelicula entonces 
-     *         se regresara un objeto Pelicula con codigo de barras igual a -1.
+     * Metodo que regresa una pelicula especificada por el codigo de barras.
+     * @param codigoDeBarras String
+     * @return Pelicula
      */
     public Pelicula getPelicula(String codigoDeBarras) {
         int indice;
@@ -66,7 +82,6 @@ public class Catalogo {
         String codBarras = codigoDeBarras;
         for (indice = 0; indice < tamanoDelArregloPeliculas; indice++) {
             if (peliculas.get(indice).getCodigoDeBarras().contains(codBarras)) {
-                //peliculaARegresar = peliculas.get(indice);
                 peliculaARegresar = catalogo.buscarPelicula(codigoDeBarras);
             }
         }
