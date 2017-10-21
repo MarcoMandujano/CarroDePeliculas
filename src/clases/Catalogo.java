@@ -1,6 +1,6 @@
 //se modificaron los metodos de la clase en la version 1.4
 
-package carrodecompras;
+package clases;
 
 import java.util.ArrayList;
 
@@ -14,15 +14,15 @@ public class Catalogo {
      */
     private ArrayList<Pelicula> peliculas;
     /**
-     * Atributo catalogo Archivos.
+     * Atributo catalogo Archivo.
      */
-    private Archivos catalogo;
+    private Archivo catalogo;
     /**
      * Constructor vacio.
      */
     public Catalogo() {
         this.peliculas = new ArrayList<Pelicula>();
-        this.catalogo = new Archivos("catalogo", "C:\\Users\\Marco\\Desktop");
+        this.catalogo = new Archivo("catalogo", "C:\\Users\\Marco\\Desktop");
     }
     /**
      * Metodo que agrega una pelicula al catalogo.

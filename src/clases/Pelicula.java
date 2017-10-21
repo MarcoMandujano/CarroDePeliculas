@@ -1,4 +1,4 @@
-package carrodecompras;
+package clases;
 
 /**
  *

@@ -1,5 +1,8 @@
-package carrodecompras;
+package Interfaz;
 
+import clases.Carrito;
+import clases.Catalogo;
+import clases.Pelicula;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
