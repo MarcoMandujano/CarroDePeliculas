@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Carrito {
     /**
-     * Atributos.
+     * peliculas tipo ArrayList de Pelicula, se guardaran aqui todas las películas que se encuentran disponibles para el usuario.
      */
     private ArrayList<Pelicula> peliculas;
     /**

@@ -10,11 +10,11 @@ import java.util.ArrayList;
  */
 public class Catalogo {
     /**
-     * Atributo peliculas de tipo ArrayList.
+     * peliculas tipo ArrayList de Pelicula, se guardaran aqui todas las películas que se encuentran disponibles para el usuario.
      */
     private ArrayList<Pelicula> peliculas;
     /**
-     * Atributo catalogo Archivo.
+     * catalogo tipo Archivo, Objeto para agregar, eliminar y obtener una película.
      */
     private Archivo catalogo;
     /**
@@ -22,7 +22,7 @@ public class Catalogo {
      */
     public Catalogo() {
         this.peliculas = new ArrayList<Pelicula>();
-        this.catalogo = new Archivo("catalogo", "C:\\Users\\Marco\\Desktop");
+        this.catalogo = new Archivo("catalogo");
     }
     /**
      * Metodo que agrega una pelicula al catalogo.
