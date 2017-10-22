@@ -56,6 +56,7 @@ public class Catalogo {
                 elim = catalogo.borrarPelicula(pelicula.getCodigoDeBarras());
                 peliculas.remove(indice);
                 tamanoDelArregloPeliculas = peliculas.size();
+                break;
             }
         }
         return elim;

@@ -147,6 +147,7 @@ public class Archivo {
     public boolean borrarPelicula(String codigoDeBarras) {
         String codigo = codigoDeBarras;
         boolean borrada = true;
+        int cont = 0;
         String nombreFicheroInicial;
         File nuevo = new File(Ffichero.getParent() + "temporal.txt");
         try {
@@ -162,8 +163,11 @@ public class Archivo {
                 /*Lee el fichero linea a linea hasta llegar a la ultima*/
                 while ((Slinea = Flee.readLine()) != null) {
                     //busca linea por linea el codigo de barras correspondiente
-                    if (Slinea.contains(codigo) == false) {
+                    if (!Slinea.contains(codigo) || cont > 0) {
                         Fescribe.write(Slinea + "\r\n");
+                    }
+                    if (Slinea.contains(codigo)) {
+                        cont++;
                     }
                     /*Imprime la linea leida*/
                     System.out.println(Slinea);
