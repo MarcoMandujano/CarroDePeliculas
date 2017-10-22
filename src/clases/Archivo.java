@@ -252,8 +252,4 @@ public class Archivo {
         }
         return peliculaABuscar;
     }
-    /*public boolean modificarPelicula(Pelicula pelicula) {
-        boolean modificada = true;
-        return modificada;
-    }*/
 }
