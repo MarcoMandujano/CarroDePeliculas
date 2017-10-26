@@ -19,26 +19,20 @@ import java.util.ArrayList;
  */
 public class Archivo {
     /**
-     * Atributo nombre de archivo de tipo String.
+     * nombreArchivo tipo String, es el nombre del archivo donde se encuentran todas las películas.
      */
     private String nombreArchivo;
     /**
-     * Atributo direccion del archivo de tipo String.
-     */
-    private String direccionDelArchivo;
-    /**
-     * Atributp Archivo de tipo Filie.
-     */
+     * Efichero tipo File, Objeto para manipuar el archivo donde se encuentran todas las películas.
+     */    
     private File Ffichero;
     /**
      * Constructor que recibe como parametros el nombre del archvio a crear
      *  y su direccion.
      * @param nombreArchivo String
-     * @param direccionDelArchivo String
      */
-    public Archivo(String nombreArchivo, String direccionDelArchivo) {
+    public Archivo(String nombreArchivo) {
         this.nombreArchivo = nombreArchivo;
-        this.direccionDelArchivo = direccionDelArchivo;
         this.Ffichero = new File(this.nombreArchivo + ".txt");
     }
     /**

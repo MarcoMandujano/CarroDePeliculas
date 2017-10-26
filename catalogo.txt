@@ -1,6 +1,5 @@
-°21412|La leyenda del jinete sin cabeza¬Johnny Depp¨Terror~100.0^
-°4356|Scarry Movie 2¬Anna Faris¨Comedia de Terror~130.0^
 °684643|Tierra de zombies¬Jesse Eisenberg¨Comedia de Terror~124.99^
 °4658468|Volver al futuro¬Michael J. Fox¨Comedia clasica~150.99^
 °098765|¿Y dónde está el fantasma?¬Marlon Wayans¨Sátirica~184.0^
 °547759i87|Monster House¬Mitchel Musso¨Animada~113.99^
+°2|a¬s¨s~3.0^

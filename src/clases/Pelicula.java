@@ -6,27 +6,27 @@ package clases;
  */
 public class Pelicula {
     /**
-     * Atributo Codigo de barras de tipo String.
+     * codigoDeBarras tipo String, es el identificador único para una película.
      */
     private String codigoDeBarras;
     /**
-     * Atributo Titulo de tipo String.
+     * titulo tipo String, es el Titulo de la película.
      */
     private String titulo;
     /**
-     * Atributo Actor principal de tipo String.
+     * actorPrincipal tipo String, es el protagonista de la peícula.
      */
     private String actorPrincipal;
     /**
-     * Atributo Genero de tipo String.
+     * genero tipo String, es el genero de la peícula.
      */
     private String genero;
     /**
-     * Atributo Precio de tipo String.
+     * precio tipo String, es el precio de la peícula..
      */
     private double precio;
     /**
-     * Atributo Cantidad de tipo String.
+     * cantidad tipo String, es cuantas peliculas va a comprar el usuario.
      */
     private double cantidad;
     /**
